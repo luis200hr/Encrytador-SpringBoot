@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Encrytador</title>
+  <link th:href="@{css/style.css}" rel="stylesheet">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body class="contenedor">
+
+  <header class="encabezado">
+    <h1>Encriptador de texto</h1>
+  </header>
+<form th:action="@{/home/encrypt}" method="post">
+  <div class="box0">
+    <legend>Mensaje</legend>
+    <input type="text" id="caja1" autocomplete="off" name="plaintext" th:value="${plaintext}"  pattern="[a-z ]+" class="textbox" placeholder="Escribe tu mensaje aqui|">
+  <div class="contenido1">
+    <button class="button" id="boton1">Encriptar</button>
+    <button class="button" id ="boton2">Desencriptar</button>
+  </div>
+  <p class="alerta"><img src="./recursos/advertencia.png" alt="icon"> Solo letras minúsculas y sin acentos</p>
+  </div>
+</form>
+  <div class="box1">
+      <legend>Resultado</legend>
+      <textarea class="textbox" th:text="${ciphertext}" placeholder="\>.." id="caja2" disabled></textarea>
+      <div class="contenido1">
+        <button class="button" id="boton3">Copiar</button>
+      </div>
+  </div>
+
+    <svg width="0" height="0" class="hidden">
+      <filter id="noise">
+          <feTurbulence id="turbulence">
+              <animate attributeName="baseFrequency" dur="10s" values="0.01
+              0.01;0.2 0.2;0.01 0.01;" repeatCount="indefinite"></animate>
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" scale="3.1"></feDisplacementMap>
+      </filter>
+    </svg>
+<script>
+ const input = document.getElementById('caja1');
+
+  setInterval(() => {
+    if (input.placeholder === 'Escribe tu mensaje aqui|') {
+      input.placeholder = 'Escribe tu mensaje aqui ';
+    } else {
+      input.placeholder = 'Escribe tu mensaje aqui|';
+    }
+  }, 500);
+  
+</script>
+<div class="capa"></div>
+<footer>| Grupo 4 | Encriptador v1.4.0 by luis200hr</footer>
+</body>
+</html> 
