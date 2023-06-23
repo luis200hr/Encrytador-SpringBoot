@@ -12,8 +12,80 @@
  	background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
  	background-repeat: no-repeat; /* Evita que la imagen se repita */
   }
+  .hero-section {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: auto;
+  }
+  .hero-section2 {
+    background-color: #0082e6;
+  }
+  .hero-content {
+    margin: 0px 100px;
+    padding: 20px;
+    color: #ffffff;
+  }
+  .hero-content2 h1 {
+    padding: 30px;
+    text-align: center;
+  }
+  .titulo {
+    margin: 30px;
+    text-align: center;
+  }
+  .hero-content h2{
+    margin-bottom: 20px;
+  }
+  .hero-content2 h2{
+    margin-bottom: 20px;
+  }
+  .hero-content p{
+    margin-bottom: 10px;
+  }
+  .part1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .part2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .part3 {
+    margin-bottom: 2rem;
+    padding: 72px;
+  }
+  
+  .image-left, .image-right {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image-left img,
+.image-right img {
+  max-width: 50%;
+  min-width: 90%;
+  height: auto;
+}
+
+  
+  .text-right {
+    flex-basis: 50%;
+    padding-left: 2rem;
+  }
+  
+  .text-left {
+    flex-basis: 50%;
+    padding-right: 2rem;
+  }
   /*Cuerpo*/
   header {
+  	background-color: #0000003b;
     text-align: center;
     background-size: cover;
     display: flex;
@@ -27,13 +99,29 @@
   p{
     color: rgb(251, 251, 251);
   }
-  h1 {
+  .mitad1, .mitad2{
+    height: 50%;
+  }
+  .mitadDescryp{
+    height: 35%;
+  }
+  .buttonResult{
+  margin: 10px;
+  width: 25%;
+  height: 37px;
+  border-radius: 11px;
+  background:#272729;
+  color: #f6faff;
+  font-size: 15px;
+  cursor: pointer;
+}
+  h2 {
     color: white;
-    font-size: 5vw;
+    font-size: 4vw;
     text-shadow: 3px 4px 0 rgb(0 0 0 / 20%);
   }
   nav{
-    background: #474e3f6e;
+    background: #474e3f0f;
     height: auto;
     width: 100%;
     display: flex;
@@ -111,7 +199,7 @@
   }
   .alerta{
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(10, 7, 203, 0.945);
+    text-shadow: 2px 2px 4px rgb(27 26 40 / 95%);
   }
 
   input, textarea{
@@ -127,6 +215,7 @@
   textarea{
     padding-left: 16px;
   }
+  
   input::placeholder, textarea::placeholder{
     font-size: 28px;
     font-family: VT323;
@@ -214,7 +303,50 @@
   }
 }
   
+.contactButton {
+  background: #7079f0;
+  cursor: pointer;
+  color: white;
+  font-family: inherit;
+  padding: 0.45em;
+  padding-left: 1.0em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3em;
+}
 
+.iconButton {
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7a8cf3;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.contactButton:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em #5566c2;
+}
+
+.contactButton:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em #5566c2;
+}
   @media screen and (max-width: 600px) {
   .box0,
   .box1 {

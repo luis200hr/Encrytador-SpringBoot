@@ -1,6 +1,9 @@
 package encrypt.luis200hr.controller;
 
+import java.util.Base64;
+
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 
 import org.springframework.stereotype.Controller;
@@ -16,42 +19,57 @@ import encrypt.luis200hr.encrypt.App;
 @Controller
 @RequestMapping("/home")
 public class EncryptionController {
-	
+	private SecretKey secretKey;
+	private byte[] initialVector;
+
 	@GetMapping
     public String home(){
         return "home";
     }
+	@GetMapping("/encry")
+	public String encry() {
+	    return "encry";
+	}
+	@GetMapping("/desencry")
+	public String desencry() {
+	    return "desencry";
+	}
+	@GetMapping("/about")
+	public String about() {
+	    return "about";
+	}
+	@GetMapping("/error")
+	public String error() {
+	    return "errorView";
+	}
     @PostMapping("/encrypt")
     public String encrypt(Model model, @RequestParam String plaintext) {
         try {
-        	SecretKey secretKey = App.createAESKey();
-            byte[] initialVector = App.Create_Initial_vector();
+        	secretKey = App.createAESKey();
+            initialVector = App.Create_Initial_vector();
             byte[] ciphertext = App.do_AESEncryption(plaintext, secretKey, initialVector);
-            String ciphertextHex = "Key: "+ 
-            		DatatypeConverter.printHexBinary(secretKey.getEncoded()) +
-            		" "
-            		+ "Mensaje: " +
-            		DatatypeConverter.printHexBinary(ciphertext);
+            String result = "Key: "+ DatatypeConverter.printHexBinary(secretKey.getEncoded());
+            String ciphertextHex = "Mensaje: " + DatatypeConverter.printHexBinary(ciphertext);
             model.addAttribute("ciphertext", ciphertextHex);
-            return "home";
+            model.addAttribute("result", result);
+            return "encry";
         } catch (Exception e) {
         	System.out.println("Entro en el error");
             e.printStackTrace();
-            return "Error occurred during encryption";
+            return  "errorView";
         }
     }
 
     @PostMapping("/decrypt")
-    public String decrypt(@RequestBody String ciphertext) {
+    public String decrypt(Model model, @RequestParam  String mensaje) {
         try {
-            SecretKey secretKey = App.createAESKey();
-            byte[] initialVector = App.Create_Initial_vector();
-            byte[] ciphertextBytes = DatatypeConverter.parseHexBinary(ciphertext);
-            String plaintext = App.do_AESDescryption(ciphertextBytes, secretKey, initialVector);
-            return plaintext;
+        	byte[] ciphertextBytes = DatatypeConverter.parseHexBinary(mensaje);
+            String result = App.do_AESDescryption(ciphertextBytes, secretKey, initialVector);
+            model.addAttribute("ciphertext", result);
+             return "desencry";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error occurred during decryption";
+            return "errorView";
         }
     }
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Encrytador</title>
+  <link rel="icon" href="/images/lock.ico">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body class="contenedor">
+
+  <div th:insert = "~{home::frameTop}"></div>
+  
+<section class="hero-section">
+	 <div class="hero-content">
+	 	<div class="part3">
+                <h2>Error Descencriptando</h2>
+                <p>No ingresaste el mensaje cifrado</p>
+                <p>Intenta nuevamente</p>
+               <div class="image-right">
+         
+                    <a th:href="@{/home/desencry}" class="contactButton">Try Again
+                    <div class="iconButton">
+				    	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+				 	</div>
+                    </a>
+                  </div>
+              </div>
+    
+	 </div>
+	 <footer>| Grupo 4 | Encriptador v2.0.0 by luis200hr</footer>
+</section>
+
+
+</body>
+</html> 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Encrytador</title>
+  <link rel="icon" href="/images/lock.ico">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body class="contenedor">
+
+  <div th:insert = "~{home::frameTop}"></div>
+  
+<section class="hero-section">
+	 <div class="hero-content">
+	 	<div class="part3">
+                <h2>Cifrado Simétrico AES</h2>
+                <p>El cifrado simétrico AES (Advanced Encryption Standard) es un algoritmo de cifrado
+                 ampliamente utilizado para proteger la confidencialidad de la información. 
+                 Es un estándar de cifrado adoptado por el Gobierno de los Estados Unidos y 
+                 se utiliza en todo el mundo.</p>
+                <p>En el cifrado simétrico AES, tanto el proceso de cifrado como el de 
+                descifrado utilizan la misma clave. Esto significa que la misma clave
+                 se utiliza para cifrar y descifrar los datos. Esto proporciona una forma 
+                 eficiente y rápida de proteger la información.</p>
+                <p>AES utiliza bloques de datos de tamaño fijo y opera en múltiples rondas de 
+                transformaciones matemáticas para mezclar y ocultar los datos. 
+                Durante el proceso de cifrado, los datos se dividen en bloques y cada bloque 
+                se somete a una serie de operaciones de sustitución y permutación. Estas
+                 operaciones se repiten en múltiples rondas para aumentar la 
+                 seguridad del cifrado.</p>
+              </div>
+           <div class="part3">
+           		<h2>Ventajas</h2>
+                <p>El cifrado AES es ampliamente utilizado debido a su seguridad, eficiencia y
+                 velocidad. Se utiliza en diversos ámbitos, como la protección de datos 
+                 confidenciales en comunicaciones seguras, almacenamiento seguro de 
+                 información y en aplicaciones que requieren un alto nivel de seguridad.</p>
+           </div>
+           <div class="part3">
+           		<h2>Precaución</h2>
+                <p>Es importante destacar que la seguridad del cifrado AES depende en 
+                gran medida de la robustez y confidencialidad de la clave utilizada. 
+                Por lo tanto, es fundamental utilizar claves fuertes y protegerlas adecuadamente 
+                para garantizar la seguridad de los datos cifrados.</p>
+           </div>
+	 </div>
+	 <footer>| Grupo 4 | Encriptador v2.0.0 by luis200hr</footer>
+</section>
+
+
+</body>
+</html> 

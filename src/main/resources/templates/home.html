@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width">
   <title>Encrytador</title>
   <link th:href="@{css/style.css}" rel="stylesheet">
-  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link rel="icon" href="images/lock.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body class="contenedor">
-
-  <header class="encabezado">
-    <h1>Encriptador de texto</h1>
+<div th:fragment ="frameTop">
+	<header class="encabezado">
+    <h2>Encriptador de texto</h2>
   </header>
   <nav>
       <input type="checkbox" id="check">
@@ -22,52 +22,67 @@
       </label>
 
       <ul class="menu-list">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Encrytador</a></li>
-        <li><a href="#">About</a></li>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/home/encry}">EncryptX</a></li>
+        <li><a th:href="@{/home/desencry}">DecryptX</a></li>
+        <li><a th:href="@{/home/about}">About</a></li>
       </ul>
     </nav>
-<form th:action="@{/home/encrypt}" method="post">
-  <div class="box0">
-    <legend>Mensaje</legend>
-    <input type="text" id="caja1" autocomplete="off" name="plaintext" th:value="${plaintext}"  pattern="[a-z ]+" class="textbox" placeholder="Escribe tu mensaje aqui|">
-  <div class="contenido1">
-    <button class="button" id="boton1">Encriptar</button>
-    <button class="button" id ="boton2">Desencriptar</button>
-  </div>
-  <p class="alerta"><img src="./recursos/advertencia.png" alt="icon"> Solo letras minúsculas y sin acentos</p>
-  </div>
-</form>
-  <div class="box1">
-      <legend>Resultado</legend>
-      <textarea class="textbox" th:text="${ciphertext}" placeholder="\>.." id="caja2" disabled></textarea>
-      <div class="contenido1">
-        <button class="button" id="boton3">Copiar</button>
-      </div>
-  </div>
-
-    <svg width="0" height="0" class="hidden">
-      <filter id="noise">
-          <feTurbulence id="turbulence">
-              <animate attributeName="baseFrequency" dur="10s" values="0.01
-              0.01;0.2 0.2;0.01 0.01;" repeatCount="indefinite"></animate>
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" scale="3.1"></feDisplacementMap>
-      </filter>
-    </svg>
-<script>
- const input = document.getElementById('caja1');
-
-  setInterval(() => {
-    if (input.placeholder === 'Escribe tu mensaje aqui|') {
-      input.placeholder = 'Escribe tu mensaje aqui ';
-    } else {
-      input.placeholder = 'Escribe tu mensaje aqui|';
-    }
-  }, 500);
+</div>
   
-</script>
-<div class="capa"></div>
-<footer>| Grupo 4 | Encriptador v1.4.0 by luis200hr</footer>
+	<section class="hero-section">
+        <div class="hero-content">
+
+            <div class="part1">
+                <div class="image-left">
+                  <img src="images/encriptacion.jpg" alt="Imagen Parte 1">
+                </div>
+                <div class="text-right">
+                  <h2>Protege tus mensajes con la máxima seguridad y privacidad.</h2>
+                  <p>Nuestro potente y fácil de usar EncryptX te ofrece una forma segura de encriptar tus textos confidenciales. ¡Mantén tus secretos a salvo!</p>
+                  <p>Con EncryptX, puedes transformar cualquier mensaje en un código indescifrable con solo unos clics. Nuestro algoritmo de encriptación avanzado garantiza que tus datos sean ilegibles para cualquier intruso. ¡Tu información personal y valiosa estará protegida en todo momento!</p>
+                </div>
+              </div>
+              <div class="part2">
+                <div class="text-left">
+                  <h2>Destacamos por nuestra simplicidad y eficacia.</h2>
+                  <p>Con una interfaz intuitiva, EncryptX es accesible para usuarios de todos los niveles. Ya seas un principiante o un experto en seguridad, podrás utilizar nuestra herramienta de forma rápida y sin complicaciones.</p>
+                  <p>¿Necesitas enviar información confidencial a través de mensajes de texto o correo electrónico? ¡No te preocupes! EncryptX te permite compartir tus mensajes encriptados con cualquier persona que desees. Solo ellos, con la clave adecuada, podrán descifrar y acceder al contenido.</p>
+                </div>
+                <div class="image-right">
+                    <img src="images/encriptacion-simetrica.jpg" alt="Imagen Parte 2">
+                  </div>
+              </div>
+              <div class="part3">
+                <h2>La seguridad es nuestra prioridad número uno.</h2>
+                <p>Nuestro equipo de expertos trabaja constantemente para mantener nuestra plataforma actualizada y protegida contra amenazas cibernéticas. Puedes confiar en que tus datos están en buenas manos con EncryptX.</p>
+                <p>¿Estás listo para mantener tus mensajes en secreto? Únete a nuestra comunidad y descubre la tranquilidad de la encriptación. ¡Comienza a utilizar EncryptX hoy mismo y lleva la seguridad de tus mensajes al siguiente nivel!</p>
+                <p>¡Protege tus secretos con EncryptX!</p>
+              </div>
+              <div class="part2">
+              	<div class="text-right">
+              		<h2>¿Comó Usarlo?</h2>
+                	<p>1. Haz click en EncryptX en la barra de navegacion"</p>
+	                <p>2. Escribe tu mensaje en la consola de la izquierda"</p>
+	                <p>3. Haz click en "Encriptar"</p>
+	                <p>4. Copia el mensaje encriptado y enviaselo a algún amigo</p>
+	                <p>5. Para desencriptar el mensaje tendras que pegarlo en la consola y dar click a "desencriptar"</p>
+	              	</div>
+                <div class="image-right">
+         
+                    <a th:href="@{/home/encry}" class="contactButton">Get Started
+                    <div class="iconButton">
+				    	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+				 	</div>
+                    </a>
+                  </div>
+              </div>
+              
+        </div>
+        <footer>| Grupo 4 | Encriptador v2.0.0 by luis200hr</footer>
+      </section>
+      
+
+
 </body>
 </html> 

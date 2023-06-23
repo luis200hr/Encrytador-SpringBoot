@@ -4,33 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Encrytador</title>
-  <link th:href="@{css/style.css}" rel="stylesheet">
   <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link rel="icon" href="/images/lock.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body class="contenedor">
 
-  <header class="encabezado">
-    <h1>Encriptador de texto</h1>
-  </header>
+  <div th:insert = "~{home::frameTop}"></div>
+  
 <form th:action="@{/home/encrypt}" method="post">
   <div class="box0">
     <legend>Mensaje</legend>
-    <input type="text" id="caja1" autocomplete="off" name="plaintext" th:value="${plaintext}"  pattern="[a-z ]+" class="textbox" placeholder="Escribe tu mensaje aqui|">
+    <input type="text" id="caja1" autocomplete="off" name="plaintext" th:value="${plaintext}"   class="textbox" placeholder="Escribe tu mensaje aqui|" required>
   <div class="contenido1">
     <button class="button" id="boton1">Encriptar</button>
-    <button class="button" id ="boton2">Desencriptar</button>
   </div>
-  <p class="alerta"><img src="./recursos/advertencia.png" alt="icon"> Solo letras minúsculas y sin acentos</p>
+  <p class="alerta"><img src="/images/advertencia.png" alt="icon"> Puedes usar letras may, min y con acentos</p>
   </div>
 </form>
   <div class="box1">
-      <legend>Resultado</legend>
-      <textarea class="textbox" th:text="${ciphertext}" placeholder="\>.." id="caja2" disabled></textarea>
-      <div class="contenido1">
-        <button class="button" id="boton3">Copiar</button>
-      </div>
+  	<div class="mitad1">
+  		 <legend>Resultado</legend>
+	      <textarea class="textbox" th:text="${result}" placeholder="\>.." id="caja4" disabled></textarea>
+	        <div class="contenido1">
+	        	<button class="buttonResult" id="boton3">Copiar</button>
+	      	</div>
+	 </div>
+     <div class="mitad2">
+  		 <legend></legend>
+	      <textarea class="textbox" th:text="${ciphertext}" placeholder="\>.." id="cajaMsn" disabled></textarea>
+	      <div class="contenido1">
+	        <button class="buttonResult" id="botonMsm">Copiar</button>
+	      </div>
+  	</div>
   </div>
 
     <svg width="0" height="0" class="hidden">
@@ -54,7 +62,8 @@
   }, 500);
   
 </script>
+<script src="/script/encriptar.js"></script>
 <div class="capa"></div>
-<footer>| Grupo 4 | Encriptador v1.4.0 by luis200hr</footer>
+<footer>| Grupo 4 | Encriptador v2.0.0 by luis200hr</footer>
 </body>
 </html> 
