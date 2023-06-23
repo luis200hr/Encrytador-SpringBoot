@@ -24,7 +24,7 @@ Es bastante rapido comparado a otros algoritmos de encriptacion
 
 ![image](https://github.com/luis200hr/Encrytador-SpringBoot/assets/120597722/7c739704-5291-4f86-aa80-991075e43543)
 
-<h1>Encriptador</h1>
+<h1>Desencriptador</h1>
 
 ![image](https://github.com/luis200hr/Encrytador-SpringBoot/assets/120597722/7ea33694-df93-4f8c-8396-ac0b2458bb8f)
 
